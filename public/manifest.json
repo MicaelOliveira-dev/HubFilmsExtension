@@ -1,0 +1,14 @@
+{
+    "name": "Hub Filmes",
+    "description": "Encontre seus filmes preferidos",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "assets/logo16.png",
+        "48": "assets/logo48.png",
+        "128": "assets/logo128.png"
+      }
+    }
+  }
