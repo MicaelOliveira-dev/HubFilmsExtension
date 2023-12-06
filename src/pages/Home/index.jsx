@@ -1,9 +1,13 @@
+// src/pages/Home/index.jsx
 import React, { useState, useEffect } from 'react';
 import { BodyContainer, Img, ContainerText, Input, Button } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [backdropPaths, setBackdropPaths] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const options = {
@@ -41,14 +45,22 @@ const Home = () => {
     }
   }, [backdropPaths]);
 
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    navigate(`/filmes/${searchTerm}`);
+  };
+
   return (
     <BodyContainer>
       <Img src={imageUrl} alt="Banner" />
       <ContainerText>
         <h1>Bem Vindo ao Hub Filmes!</h1>
         <h2>Aqui você encontra os melhores Filmes.</h2>
-        <Input/>
-        <Button>Pesquise o Filme</Button>
+        <Input value={searchTerm} onChange={handleInputChange} />
+        <Button onClick={handleSearchClick}>Pesquise o Filme</Button>
       </ContainerText>
     </BodyContainer>
   );
