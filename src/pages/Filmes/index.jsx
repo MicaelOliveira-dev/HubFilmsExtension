@@ -44,10 +44,11 @@ const Filmes = () => {
   }, [searchTerm]);
 
   const settings = {
-    infinite: true,
-    slidesToShow: 6, 
+    infinite: false,
+    slidesToShow: 4, 
     speed: 500,
     slidesToScroll: 2,
+    arrows: false,
   };
 
   return (
